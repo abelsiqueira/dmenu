@@ -41,7 +41,7 @@ static void setup(void);
 static void usage(void);
 
 static char text[BUFSIZ] = "";
-static int bh, mw, mh;
+static int bh, mw = 0, mh;
 static int inputw, promptw;
 static size_t cursor = 0;
 static unsigned long normcol[ColLast];
@@ -85,6 +85,8 @@ main(int argc, char *argv[]) {
 		/* these options take one argument */
 		else if(!strcmp(argv[i], "-l"))   /* number of lines in vertical list */
 			lines = atoi(argv[++i]);
+		else if(!strcmp(argv[i], "-w"))   /* width of bar */
+			mw = atoi(argv[++i]);
 		else if(!strcmp(argv[i], "-m"))
 			mon = atoi(argv[++i]);
 		else if(!strcmp(argv[i], "-p"))   /* adds prompt to left of input field */
@@ -584,7 +586,8 @@ setup(void) {
 
 		x = info[i].x_org;
 		y = info[i].y_org + (topbar ? 0 : info[i].height - mh);
-		mw = info[i].width;
+		if ((mw == 0) || (mw > info[i].width))
+      mw = info[i].width;
 		XFree(info);
 	}
 	else
