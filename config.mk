@@ -1,5 +1,5 @@
 # dmenu version
-VERSION = 4.5-tip
+VERSION = 4.5-tip_branch-width
 
 # paths
 PREFIX = /usr/local
