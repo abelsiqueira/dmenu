@@ -7,9 +7,11 @@ dmenu \- dynamic menu
 .RB [ \-f ]
 .RB [ \-i ]
 .RB [ \-l
+.IR lines ]
 .RB [ \-m
 .IR monitor ]
-.IR lines ]
+.RB [ \-w
+.IR width ]
 .RB [ \-p
 .IR prompt ]
 .RB [ \-fn
@@ -53,6 +55,9 @@ dmenu lists items vertically, with the given number of lines.
 .TP
 .BI \-m " monitor"
 dmenu is displayed on the monitor supplied.
+.TP
+.BI \-w " width"
+defines the width of the menu.
 .TP
 .BI \-p " prompt"
 defines the prompt to be displayed to the left of the input field.
